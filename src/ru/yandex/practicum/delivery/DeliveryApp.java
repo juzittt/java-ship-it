@@ -57,10 +57,10 @@ public class DeliveryApp {
     // реализуйте методы ниже
     private static void addParcel() {
         System.out.println("""
-        Введите тип посылки:
-        1 - Стандартная
-        2 - Хрупкая
-        3 - Скоропортящаяся""");
+                Введите тип посылки:
+                1 - Стандартная
+                2 - Хрупкая
+                3 - Скоропортящаяся""");
         int type = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Описание:");

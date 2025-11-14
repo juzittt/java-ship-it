@@ -1,10 +1,11 @@
 package ru.yandex.practicum;
 
+import org.junit.jupiter.api.Test;
 import ru.yandex.practicum.delivery.FragileParcel;
 import ru.yandex.practicum.delivery.ParcelBox;
 import ru.yandex.practicum.delivery.PerishableParcel;
 import ru.yandex.practicum.delivery.StandardParcel;
-import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DeliveryCostTest {
@@ -70,7 +71,7 @@ public class DeliveryCostTest {
 
         assertTrue(added);
         assertEquals(1, box.getAllParcels().size());
-        assertEquals(3, box.getAllParcels().get(0).weight);
+        assertEquals(3, box.getAllParcels().getFirst().weight);
     }
 
     @Test
@@ -118,6 +119,6 @@ public class DeliveryCostTest {
         assertFalse(box.addParcel(p2));
 
         assertEquals(1, box.getAllParcels().size());
-        assertEquals("P1", box.getAllParcels().get(0).description);
+        assertEquals("P1", box.getAllParcels().getFirst().description);
     }
 }

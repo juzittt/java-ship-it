@@ -13,18 +13,18 @@ public abstract class Parcel {
         this.sendDay = sendDay;
     }
 
-    public void packageItem(){
+    public void packageItem() {
         System.out.println("Посылка " + description + " упакована");
     }
 
-    public void deliver(){
+    public void deliver() {
         System.out.println("Посылка " + description + " доставлена по адресу " + deliveryAddress);
     }
 
     public <T extends Parcel> int calculateDeliveryCost(T parcel) {
         int deliveryCost = 0;
         if (parcel.getClass() == StandardParcel.class) {
-            deliveryCost =  weight * StandardParcel.DELIVERY_PRICE;
+            deliveryCost = weight * StandardParcel.DELIVERY_PRICE;
         } else if (parcel.getClass() == PerishableParcel.class) {
             deliveryCost = weight * PerishableParcel.DELIVERY_PRICE;
         } else if (parcel.getClass() == FragileParcel.class) {
