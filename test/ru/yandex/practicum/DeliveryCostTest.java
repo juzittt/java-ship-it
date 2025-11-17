@@ -12,14 +12,14 @@ public class DeliveryCostTest {
     @Test
     void calculateDeliveryCost_StandardParcel_NormalWeight_CorrectCost() {
         StandardParcel parcel = new StandardParcel("Book", 5, "Moscow", 1);
-        int cost = parcel.calculateDeliveryCost(parcel);
+        int cost = parcel.calculateDeliveryCost();
         assertEquals(10, cost);
     }
 
     @Test
     void calculateDeliveryCost_FragileParcel_NormalWeight_CorrectCost() {
         FragileParcel parcel = new FragileParcel("Vase", 3, "SPb", 2);
-        int cost = parcel.calculateDeliveryCost(parcel);
+        int cost = parcel.calculateDeliveryCost();
         assertEquals(12, cost);
     }
 
@@ -27,14 +27,14 @@ public class DeliveryCostTest {
     void calculateDeliveryCost_PerishableParcel_NormalWeight_CorrectCost() {
         PerishableParcel parcel = new PerishableParcel("Cheese", 4,
                 "Kazan", 3, 5);
-        int cost = parcel.calculateDeliveryCost(parcel);
+        int cost = parcel.calculateDeliveryCost();
         assertEquals(12, cost);
     }
 
     @Test
     void calculateDeliveryCost_StandardParcel_ZeroWeight_ZeroCost() {
         StandardParcel parcel = new StandardParcel("Empty box", 0, "Klin", 1);
-        int cost = parcel.calculateDeliveryCost(parcel);
+        int cost = parcel.calculateDeliveryCost();
         assertEquals(0, cost);
     }
 
@@ -71,7 +71,7 @@ public class DeliveryCostTest {
 
         assertTrue(added);
         assertEquals(1, box.getAllParcels().size());
-        assertEquals(3, box.getAllParcels().getFirst().weight);
+        assertEquals(3, box.getAllParcels().getFirst().getWeight());
     }
 
     @Test
@@ -106,7 +106,7 @@ public class DeliveryCostTest {
         assertTrue(box.addParcel(p1));
         assertTrue(box.addParcel(p2));
         assertEquals(2, box.getAllParcels().size());
-        assertEquals(7, box.getAllParcels().stream().mapToInt(p -> p.weight).sum());
+        assertEquals(7, box.getAllParcels().stream().mapToInt(p -> p.getWeight()).sum());
     }
 
     @Test
@@ -119,6 +119,6 @@ public class DeliveryCostTest {
         assertFalse(box.addParcel(p2));
 
         assertEquals(1, box.getAllParcels().size());
-        assertEquals("P1", box.getAllParcels().getFirst().description);
+        assertEquals("P1", box.getAllParcels().getFirst().getDescription());
     }
 }

@@ -118,7 +118,7 @@ public class DeliveryApp {
     private static void calculateCosts() {
         int totalCost = 0;
         for (Parcel parcel : allParcels) {
-            totalCost += parcel.calculateDeliveryCost(parcel);
+            totalCost += parcel.calculateDeliveryCost();
         }
         System.out.println("Общая стоимость доставки: " + totalCost);
     }
